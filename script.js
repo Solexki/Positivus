@@ -59,3 +59,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateSlidePosition(); // Initialize position on load
 });
+
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      console.log(entry);
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      } else {
+        entry.target.classList.remove("show");
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el) => observer.observe(el));
+
+const menuIcon = document.querySelector(".menu-icon");
+const navItem = document.querySelector(".nav-items");
+
+menuIcon.addEventListener("click", function () {
+  navItem.classList.toggle("show-nav-item");
+
+  if (navItem.classList.contains("show-nav-item")) {
+    menuIcon.innerHTML = "&#10006;";
+  } else {
+    menuIcon.innerHTML = "&#9776;";
+  }
+});
+
