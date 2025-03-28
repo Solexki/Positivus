@@ -122,6 +122,7 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
+  transition: all 1s ease-out;
 }
 .digital-note{
   position: absolute;
@@ -130,11 +131,19 @@ li {
   display: flex;
   flex-direction: column;
   gap: 30px;
+   transform: scale(0.2) translate(-100%, -100%);
+  animation: scaleText 1s linear forwards;
 }
 .navigateing-digital h1 {
   font-size: 50px;
   line-height: auto;
   text-align: left;
+ 
+}
+@keyframes scaleText {
+  to{
+    transform: scale(1) translate(0);
+  }
 }
 .big-btn {
   width: 264px;
@@ -605,6 +614,7 @@ mix-blend-mode:normal;
     gap: 40px;
     transform: translateX(-50%);
     transition: transform 0.5s ease-in-out;
+    
 }
 
 .testimonies {
@@ -643,7 +653,7 @@ mix-blend-mode:normal;
 
 .testimony-author{
     margin-left: 70px;
-    padding: 30px 0;
+    padding: 30px 0 20px;
 }
 
 .testimony-author h3{
@@ -660,11 +670,12 @@ mix-blend-mode:normal;
 
 .slide-navigator{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 30px 10px;
+    padding: 30px 30px 10px;
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
     color: #f3f3f3;
 }
@@ -845,7 +856,9 @@ gap: 20px;
   color: var(--Secondary-color);
   margin-bottom: 5px;
 }
-
+.footer-middle .socials{
+  display: none;
+}
 .footer-middle p{
   line-height: 30px;
 }
@@ -948,7 +961,9 @@ gap: 20px;
   animation-delay: 1200ms;
   
 } 
-
+.menu-icon{
+  display: none;
+}
 @keyframes fadein {
   from{
     opacity: 0;
@@ -962,12 +977,16 @@ gap: 20px;
 
 @media screen and (max-width: 767px) {
   body {
- overflow: hidden;
   padding: 0 15px;
- 
+}
+html, body{
+  overflow-x: hidden;
 }
 section{
   margin-bottom: 70px;
+}
+.menu-icon{
+  display: block;
 }
   .top-nav {
   align-items: flex-start;
@@ -987,20 +1006,18 @@ section{
  .nav-items {
    z-index: 1;
    flex-direction: column;
-   gap: 20px;
- 
+    transition: all 0.3s ease-out;
 }
 
 nav .nav-items{
   position: absolute;
   right: 10px;
-  opacity: 0;
   margin-top: 40px;
-  transition: all 0.3s ease-out;
+  opacity: 0;
 }
 
 .show-nav-item{
-  opacity: 1;
+  opacity: 1 !important;
 }
 
 li {
@@ -1111,6 +1128,7 @@ li {
 
 .case-studies{
   overflow: scroll;
+  scrollbar-width: none;
   align-items: center;
   gap: 20px;
   padding: 0 20px;
@@ -1145,26 +1163,18 @@ li {
 }
 
 .testimonies-slider {
-    position: absolute;
-    left: 30px; 
-    width: 606px;
-    display: flex;
-    gap: 40px;
-    transform: translateX(-50%);
-    transition: transform 0.5s ease-in-out;
+    justify-content: center;
 }
 
 .testimonies {
     flex: 0 0 50%;
    justify-content: center;
    align-items: center;
-
 }
 .testimony-area {
   height:25em;
   
 }
-
 
 .testimony-container {
   width: 100%;
@@ -1186,6 +1196,7 @@ li {
 .contact-form .btn{
   width: 100%;
   position: absolute;
+  left: 0;
   bottom: -25%;
 }
 footer{
@@ -1243,6 +1254,8 @@ footer{
 .copy-right{
   flex-direction: column;
 }
-
+.footer-middle .socials{
+  display: flex;
+}
 
 }
